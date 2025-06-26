@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=4 uid="uid://osojbgim5v00"]
+
+[ext_resource type="TileSet" uid="uid://c3i2jdgr2stie" path="res://tileset.tres" id="1_cljdu"]
+[ext_resource type="Script" uid="uid://jugq1s87j7d0" path="res://Levels/player_movement.gd" id="2_p4erq"]
+[ext_resource type="Texture2D" uid="uid://vhvcvk2tm0mb" path="res://sprites.tres" id="2_uvd1l"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_uvd1l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p4erq"]
+size = Vector2(1152, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uvd1l"]
+size = Vector2(14, 31)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+texture_filter = 1
+tile_map_data = PackedByteArray("AAAAACQAAAAMAAUAAAABACQAAAAGAA0AAAACACQAAAAGAA0AAAADACQAAAAGAA0AAAAEACQAAAAGAA0AAAAFACQAAAAGAA0AAAAGACQAAAAGAA0AAAAHACQAAAAGAA0AAAAIACQAAAAGAA0AAAAJACQAAAAGAA0AAAAKACQAAAAGAA0AAAALACQAAAAGAA0AAAAMACQAAAAGAA0AAAANACQAAAAGAA0AAAAOACQAAAAGAA0AAAAPACQAAAAGAA0AAAAQACQAAAAGAA0AAAARACQAAAAGAA0AAAASACQAAAAGAA0AAAATACQAAAAGAA0AAAAUACQAAAAGAA0AAAAVACQAAAAGAA0AAAAWACQAAAAGAA0AAAAXACQAAAAGAA0AAAAYACQAAAAGAA0AAAAZACQAAAAGAA0AAAAaACQAAAAGAA0AAAAbACQAAAAGAA0AAAAcACQAAAAGAA0AAAAdACQAAAAGAA0AAAAeACQAAAAGAA0AAAAfACQAAAAGAA0AAAAgACQAAAAGAA0AAAAhACQAAAAGAA0AAAAiACQAAAAGAA0AAAAjACQAAAAGAA0AAAAkACQAAAAGAA0AAAAlACQAAAAGAA0AAAAmACQAAAAGAA0AAAAnACQAAAAGAA0AAAAoACQAAAAGAA0AAAApACQAAAAGAA0AAAAqACQAAAAGAA0AAAArACQAAAAGAA0AAAAsACQAAAAGAA0AAAAtACQAAAAGAA0AAAAuACQAAAAGAA0AAAAvACQAAAAGAA0AAAAwACQAAAAGAA0AAAAxACQAAAAGAA0AAAAyACQAAAAGAA0AAAAzACQAAAAGAA0AAAA0ACQAAAAGAA0AAAA1ACQAAAAGAA0AAAA2ACQAAAAGAA0AAAA3ACQAAAAGAA0AAAA4ACQAAAAGAA0AAAA5ACQAAAAGAA0AAAA6ACQAAAAGAA0AAAA7ACQAAAAGAA0AAAA8ACQAAAAGAA0AAAA9ACQAAAAGAA0AAAA+ACQAAAAGAA0AAAA/ACQAAAAGAA0AAABAACQAAAAGAA0AAABBACQAAAAGAA0AAABCACQAAAAGAA0AAABDACQAAAAGAA0AAABEACQAAAAGAA0AAABFACQAAAAGAA0AAABGACQAAAAGAA0AAABHACQAAAAMAAcAAAA=")
+tile_set = ExtResource("1_cljdu")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="TileMapLayer"]
+position = Vector2(20, 583)
+disable_mode = 1
+physics_material_override = SubResource("PhysicsMaterial_uvd1l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/StaticBody2D"]
+position = Vector2(556, 1)
+shape = SubResource("RectangleShape2D_p4erq")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(223, 15)
+script = ExtResource("2_p4erq")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+texture_filter = 1
+position = Vector2(445, 401)
+texture = ExtResource("2_uvd1l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(445, 401)
+shape = SubResource("RectangleShape2D_uvd1l")
