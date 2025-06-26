@@ -6,7 +6,7 @@ func get_input():
 	var input_direction = Input.get_vector("left", "right", "up", "down")
 	velocity += input_direction * speed
 	
-	if Input.is_action_just_pressed("jump"):
+	if is_on_floor() and Input.is_action_just_pressed("jump"):
 		velocity.y -= 1000;
 
 func _physics_process(delta):
